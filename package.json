@@ -24,7 +24,7 @@
     "./package.json": "./package.json"
   },
   "bin": {
-    "dsh-omni-plan-mcp": "./lib/mcp-stdio.js"
+    "dsh-omni-plan-mcp": "lib/mcp-stdio.js"
   },
   "files": [
     "lib",
