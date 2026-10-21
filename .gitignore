@@ -1,0 +1,10 @@
+node_modules/
+*.tgz
+*.log
+*.bak
+.backup-*/
+.tmp*
+state.json
+state.json.*
+topmost.log
+scratch/

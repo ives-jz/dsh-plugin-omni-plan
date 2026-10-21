@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="Omni Plan">
+  <defs>
+    <!-- 钛金暗夜深邃渐变 -->
+    <radialGradient id="omni-bg" cx="50%" cy="40%" r="75%">
+      <stop offset="0%" stop-color="#1c1c22" />
+      <stop offset="55%" stop-color="#111115" />
+      <stop offset="100%" stop-color="#08080a" />
+    </radialGradient>
+
+    <!-- 顶部环境光高光微描边 -->
+    <linearGradient id="omni-stroke" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.22" />
+      <stop offset="40%" stop-color="#ffffff" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.6" />
+    </linearGradient>
+
+    <!-- 核心星芒流光渐变 -->
+    <linearGradient id="omni-spark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="50%" stop-color="#e4e4e7" />
+      <stop offset="100%" stop-color="#a1a1aa" />
+    </linearGradient>
+
+    <!-- 柔和星轨光环渐变 -->
+    <linearGradient id="omni-orbit" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.15" />
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.65" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.15" />
+    </linearGradient>
+
+    <!-- 核心微发光滤镜 -->
+    <filter id="omni-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3.5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- 外层高端连续曲率圆角矩形 -->
+  <rect x="5" y="5" width="118" height="118" rx="30" fill="url(#omni-bg)" stroke="url(#omni-stroke)" stroke-width="1.8" />
+
+  <!-- 内部精致星轨同心全景轨道 (Omni Orbit) -->
+  <circle cx="64" cy="64" r="38" fill="none" stroke="#27272a" stroke-width="1.2" stroke-dasharray="3 4" opacity="0.6" />
+  <circle cx="64" cy="64" r="28" fill="none" stroke="url(#omni-orbit)" stroke-width="1.6" stroke-linecap="round" />
+
+  <!-- 轨道交互微基准锚点 (Focus Pins) -->
+  <circle cx="64" cy="36" r="2.4" fill="#ffffff" />
+  <circle cx="92" cy="64" r="2" fill="#a1a1aa" />
+  <circle cx="64" cy="92" r="2" fill="#71717a" />
+  <circle cx="36" cy="64" r="2" fill="#a1a1aa" />
+
+  <!-- 核心四芒极简焦点星徽 (Focus Spark - 现代极简透彻高光) -->
+  <g filter="url(#omni-glow)">
+    <!-- 核心四芒聚焦点几何 -->
+    <path d="M 64,43 Q 64,64 43,64 Q 64,64 64,85 Q 64,64 85,64 Q 64,64 64,43 Z" fill="url(#omni-spark)" />
+    <!-- 中心微发光核 -->
+    <circle cx="64" cy="64" r="3.2" fill="#ffffff" />
+  </g>
+
+  <!-- 顶部轻微玻璃倒角反射微光线 -->
+  <path d="M 35,6 Q 64,9 93,6" stroke="#ffffff" stroke-width="1.2" stroke-linecap="round" opacity="0.18" fill="none" />
+</svg>

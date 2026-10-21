@@ -1,0 +1,67 @@
+{
+  "name": "dsh-plugin-omni-plan",
+  "version": "0.0.1-beta",
+  "description": "Global always-on-top AI plan board and context-anchor memory for every DSH session, with local REST/SSE and MCP access.",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "plan",
+    "todo",
+    "context",
+    "mcp",
+    "always-on-top"
+  ],
+  "type": "module",
+  "main": "./lib/host.js",
+  "icon": "./icon.svg",
+  "exports": {
+    ".": "./lib/host.js",
+    "./client": "./lib/client.js",
+    "./mcp-stdio": "./lib/mcp-stdio.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "dsh-omni-plan-mcp": "./lib/mcp-stdio.js"
+  },
+  "files": [
+    "lib",
+    "locale/*.json",
+    "icon.svg",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-slots"
+      ]
+    }
+  },
+  "engines": {
+    "node": ">=22.6",
+    "dsh": ">=0.2.1-rc.2"
+  },
+  "author": "ives-jz",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ives-jz/dsh-plugin-omni-plan.git"
+  },
+  "homepage": "https://github.com/ives-jz/dsh-plugin-omni-plan#readme",
+  "bugs": {
+    "url": "https://github.com/ives-jz/dsh-plugin-omni-plan/issues"
+  },
+  "license": "MIT"
+}

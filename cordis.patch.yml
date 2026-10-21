@@ -1,0 +1,14 @@
+# dsh-plugin-omni-plan — bundle patch
+# The Host half owns ~/.dsh/omni-plan/state.json, the four plan_* tools and the
+# local REST/SSE/MCP endpoints.  The Client half renders into shell.overlay.
+- insert:
+    - id: omni-plan
+      name: dsh-plugin-omni-plan
+      config:
+        # Empty means "use defaults".  An absolute path may be supplied for
+        # tests or for sharing one plan file between several DSH profiles.
+        dataDir: ''
+        pollIntervalMs: 500
+        sseHeartbeatMs: 15000
+        reminderPollMs: 5000
+        mcpHttp: true
