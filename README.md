@@ -32,6 +32,10 @@ DSH 侧边栏 → 插件市场 → 搜索 Omni Plan → 安装
 或：
 
 ```powershell
+# 插件市场 / Web profile（市场收录命令）
+dsh plugin --profile web add dsh-plugin-omni-plan
+
+# 桌面版 profile（本机实际使用的 profile 名以你的环境为准）
 dsh plugin --profile desktop add dsh-plugin-omni-plan
 ```
 
