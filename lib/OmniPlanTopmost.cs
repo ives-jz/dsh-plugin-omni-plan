@@ -1724,7 +1724,7 @@ namespace OmniPlanTopmost
             _summaryButton.ToolTip = CreateModernToolTip("点击后即可复制提示词发送给任意 AI，AI 就会用指定格式回复你；复制后点击导入，即可整理为我们的任务待办或者灵感。");
             _summaryButton.Click += delegate
             {
-                RunAiOrganize();
+                CopySummaryPromptToClipboard();
             };
 
             _importButton = NewButton("导入", _palette.ButtonBg, _palette.TextSecondary, _palette.ButtonBorder, 10.5);
@@ -2596,7 +2596,14 @@ namespace OmniPlanTopmost
             try
             {
                 StringBuilder sb = new StringBuilder();
-                sb.AppendLine("你是一位专业敏捷任务规划与执行架构师。请分析并总结以下来自 Omni Plan 看板的当前工作状态与灵感，帮助我进行梳理、分类、补充关键步骤与可行性动作。");
+                sb.AppendLine("请整理我们原先的对话，把我的想法转换成需要立即执行的「焦点」或者「任务」，或者它其实只是一个「灵感」。");
+                sb.AppendLine();
+                sb.AppendLine("判断标准：");
+                sb.AppendLine("1. 希望实现的灵感焦点是：如果这段对话产生了一个需要持续跟踪的目标/方向，提炼成一条「焦点」；");
+                sb.AppendLine("2. 我当下会立马动身去做的任务是：拆成可以直接执行的「任务」，并按 P0~P7 标注优先级（P0 最高）；");
+                sb.AppendLine("3. 摆在看板里、未来有机会再点进去看、再讨论可行性的想法，放进「灵感」。");
+                sb.AppendLine();
+                sb.AppendLine("下面附上我当前看板的快照，供你参考、避免重复：");
                 sb.AppendLine();
                 sb.AppendLine("---");
                 sb.AppendLine("【当前看板数据】");
@@ -2659,22 +2666,17 @@ namespace OmniPlanTopmost
 
                 sb.AppendLine("---");
                 sb.AppendLine();
-                sb.AppendLine("【请你完成】");
-                sb.AppendLine("1. 深度分析当前任务进展与灵感，指出核心目标、依赖关系与风险建议；");
-                sb.AppendLine("2. 梳理提炼出接下来需要推进的成熟可执行任务（按 P0~P5 优先级排列）；");
-                sb.AppendLine("3. 严格在回复最后输出一个独立的 Markdown 代码块（语言标注为 ```omni-plan ），以便我一键导入回看板。规范格式如下：");
+                sb.AppendLine("【输出要求】");
+                sb.AppendLine("请严格在回复的最后输出一个独立的 Markdown 代码块（语言标注为 ```omni-plan ），我会一键导入回看板。");
+                sb.AppendLine("格式：每行一条，字段之间用 | 分隔；代码块之外可以照常写分析，但导入只读取代码块。请把下面的示例替换成真实内容，不要原样输出示例行。");
                 sb.AppendLine();
                 sb.AppendLine("```omni-plan");
-                sb.AppendLine("# 焦点 (若有更新建议，格式：[焦点] 工作区 | 正在执行 | 下一步行动)");
-                sb.AppendLine("[焦点] 默认工作区 | 正在推进核心流程 | 确认后续任务");
-                sb.AppendLine();
-                sb.AppendLine("# 任务清单 (格式：[任务] 优先级 | 任务标题 | 详细备注)");
-                sb.AppendLine("[任务] P1 | 任务标题名称 | 具体的行动要点或验收标准");
-                sb.AppendLine("[任务] P2 | 第二条任务标题 | 相关备注说明");
-                sb.AppendLine();
-                sb.AppendLine("# 灵感闪念 (格式：[灵感] 灵感内容)");
-                sb.AppendLine("[灵感] 延伸思考或备忘想法");
+                sb.AppendLine("[焦点] 工作区 | 正在执行 | 下一步行动");
+                sb.AppendLine("[任务] P1 | 动宾结构的任务标题 | 验收标准或备注");
+                sb.AppendLine("[任务] P3 | 第二个任务标题 | 备注");
+                sb.AppendLine("[灵感] 一个以后再看、暂不执行的想法");
                 sb.AppendLine("```");
+                sb.AppendLine("补充：焦点最多一条，没有明确变化可省略；任务标题必须动宾结构、可直接执行、不要重复已有任务；灵感只放暂不执行的。");
 
                 string promptText = sb.ToString();
                 bool copied = SetClipboardTextNative(promptText);
