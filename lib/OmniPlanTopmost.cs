@@ -2600,7 +2600,7 @@ namespace OmniPlanTopmost
                 sb.AppendLine();
                 sb.AppendLine("判断标准：");
                 sb.AppendLine("1. 希望实现的灵感焦点是：如果这段对话产生了一个需要持续跟踪的目标/方向，提炼成一条「焦点」；");
-                sb.AppendLine("2. 我当下会立马动身去做的任务是：拆成可以直接执行的「任务」，并按 P0~P7 标注优先级（P0 最高）；");
+                sb.AppendLine("2. 我当下会立马动身去做的任务是：拆成可以直接执行的「任务」，并按 P0~P5 标注优先级（P0 最高）；");
                 sb.AppendLine("3. 摆在看板里、未来有机会再点进去看、再讨论可行性的想法，放进「灵感」。");
                 sb.AppendLine();
                 sb.AppendLine("下面附上我当前看板的快照，供你参考、避免重复：");
