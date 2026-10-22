@@ -1,6 +1,6 @@
 {
   "name": "dsh-plugin-omni-plan",
-  "version": "0.0.2-beta",
+  "version": "0.0.3",
   "description": "Global always-on-top AI plan board and context-anchor memory for every DSH session, with local REST/SSE and MCP access.",
   "keywords": [
     "dsh",

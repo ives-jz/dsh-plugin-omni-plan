@@ -1,7 +1,7 @@
 # Omni Plan
 
 > 给 DSH 用的全局置顶计划看板：**跨会话防失忆 · 灵感收件箱 · AI 整理 · 一键注入待办**。
-> 当前版本：`0.0.2-beta`（公测版） · 仓库：<https://github.com/ives-jz/dsh-plugin-omni-plan>
+> 当前版本：`0.0.3`（公测版） · 仓库：<https://github.com/ives-jz/dsh-plugin-omni-plan>
 
 同时开多个 DSH 窗口、多个 Agent 时，切回来最容易忘记「刚才做到哪、下一步该干嘛」。Omni Plan 把一份**所有会话共享的计划板**放到最上层，并让所有 DSH 会话、Claude、Cursor 等 MCP 客户端读写同一份本地数据。
 

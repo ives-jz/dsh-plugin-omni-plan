@@ -1677,7 +1677,7 @@ namespace OmniPlanTopmost
             Grid.SetRow(footer, 3);
             _mainContentGrid.Children.Add(footer);
 
-            // 底栏左侧: 规范版本号 0.0.1 β
+            // 底栏左侧: 规范版本号 0.0.3 β
             StackPanel footerLeft = new StackPanel();
             footerLeft.Orientation = Orientation.Horizontal;
             footerLeft.VerticalAlignment = VerticalAlignment.Center;
@@ -1690,7 +1690,7 @@ namespace OmniPlanTopmost
             _versionBadge.BorderThickness = new Thickness(1);
             _versionBadge.ToolTip = "Omni Plan 当前版本";
 
-            _versionText = Text("0.0.1 β", 10, _palette.TextMuted, FontWeights.SemiBold, "Segoe UI, Consolas");
+            _versionText = Text("0.0.3 β", 10, _palette.TextMuted, FontWeights.SemiBold, "Segoe UI, Consolas");
             _versionBadge.Child = _versionText;
             footerLeft.Children.Add(_versionBadge);
 
@@ -3326,7 +3326,7 @@ namespace OmniPlanTopmost
                 _state.Tasks = ParseTasks(stateObj);
                 _state.Inbox = ParseInbox(stateObj);
 
-                // 版本信息已规范显示为 0.0.1 β
+                // 版本信息已规范显示为 0.0.3 β
                 _tabFocusBadgeText.Text = _state.ActiveContexts.Count.ToString();
                 _tabTasksBadgeText.Text = _state.Tasks.Count.ToString();
                 _tabInboxBadgeText.Text = _state.Inbox.Count.ToString();
